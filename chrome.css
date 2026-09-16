@@ -1,8 +1,5 @@
-/* Bookmarks Bar Card
- * Rounds Zen's compact-mode top bar into a floating card, and closes the
- * two gaps that otherwise show as dark bars above and below the page.
- * #zen-appcontent-navbar-container is the real flex parent of the
- * bookmarks bar and the window controls. */
+/* Bookmarks Bar Card: rounds the compact-mode top bar into a floating card
+ * and closes the gaps that otherwise show as dark bars around the page. */
 
 /* ---- Shape: rounded card ---- */
 
@@ -11,9 +8,8 @@
     background-color: transparent !important;
 }
 
-/* border-box matters here. Zen's default, content-box, adds padding and
- * border outside a flex-computed width, which pushed this element past
- * the window edge by the padding sum. */
+/* border-box matters: content-box adds padding and border outside a
+ * flex-computed width, pushing this element past the window edge. */
 :root[zen-compact-mode="true"] #zen-appcontent-navbar-container {
     box-sizing: border-box !important;
     align-items: center !important;
@@ -60,10 +56,8 @@
 
 /* ---- Edge-to-edge page content ---- */
 
-/* At rest the collapsed card still held roughly 9px of layout flow, its
- * margin plus border, which pushed the page down and left a strip where
- * the window backdrop showed through. Taking the wrapper out of flow
- * removes that strip without changing how the card looks when open. */
+/* At rest the collapsed card held ~9px of layout flow, its margin plus
+ * border, pushing the page down. Out of flow, that strip goes. */
 @media not (-moz-bool-pref: "theme.bookmarks_bar_card.keep_page_gaps") {
     :root[zen-compact-mode="true"] #zen-appcontent-navbar-wrapper {
         position: absolute !important;
@@ -73,21 +67,18 @@
         z-index: 20 !important;
     }
 
-    /* #zen-tabbox-wrapper carries Zen's 8px margin on every side. Left
-     * alone, the bottom one leaves a matching strip under the page.
-     * Measured live: wrapper 508px, tabbox 500px, 8px margin-bottom. */
+    /* #zen-tabbox-wrapper carries Zen's 8px margin on every side, and each
+     * one leaves its own strip. Measured live: 8px left and right either
+     * side of the page, matching the 8px top and bottom. */
     :root[zen-compact-mode="true"] #zen-tabbox-wrapper {
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
+        margin: 0 !important;
     }
 }
 
 /* ---- Reveal ---- */
 
-/* Out of flow, the wrapper sits at its 8px rest height, and Zen's own
- * overflow:clip then crops the taller card inside it. The thin strip
- * stays the hover target, so panning to the top edge still triggers the
- * reveal, and the height opens only far enough to clear the card. */
+/* Out of flow the wrapper sits at 8px and Zen's overflow:clip crops the
+ * taller card. The strip stays the hover target, so panning still works. */
 :root[zen-compact-mode="true"] #zen-appcontent-navbar-wrapper:hover {
     height: auto !important;
     max-height: none !important;
