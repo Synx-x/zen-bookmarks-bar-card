@@ -1,0 +1,22 @@
+{
+    "id": "c5278ad0-f7fd-4886-8d1e-d9ea64a2de3d",
+    "name": "Bookmarks Bar Card",
+    "description": "Rounds the compact-mode bookmarks bar into a floating card and removes the dark strips above and below the page.",
+    "homepage": "https://github.com/Synx-x/zen-bookmarks-bar-card",
+    "style": "https://raw.githubusercontent.com/Synx-x/zen-bookmarks-bar-card/main/chrome.css",
+    "readme": "https://raw.githubusercontent.com/Synx-x/zen-bookmarks-bar-card/main/README.md",
+    "image": "https://raw.githubusercontent.com/Synx-x/zen-bookmarks-bar-card/main/image.png",
+    "author": "Synx-x",
+    "preferences": "https://raw.githubusercontent.com/Synx-x/zen-bookmarks-bar-card/main/preferences.json",
+    "version": "1.0.0",
+    "tags": [
+        "compact",
+        "bookmarks",
+        "toolbar",
+        "rounded",
+        "minimal",
+        "compact-mode"
+    ],
+    "createdAt": "2026-09-16",
+    "updatedAt": "2026-09-16"
+}

@@ -1,0 +1,48 @@
+[
+    {
+        "property": "theme.bookmarks_bar_card.radius",
+        "label": "Corner radius (px)",
+        "type": "string",
+        "placeholder": "8 - 32",
+        "defaultValue": "18"
+    },
+    {
+        "property": "theme.bookmarks_bar_card.gap",
+        "label": "Gap between the card and the window edge (px)",
+        "type": "string",
+        "placeholder": "0 - 24",
+        "defaultValue": "8"
+    },
+    {
+        "property": "theme.bookmarks_bar_card.inset",
+        "label": "Inner side padding (px)",
+        "type": "string",
+        "placeholder": "0 - 32",
+        "defaultValue": "15"
+    },
+    {
+        "property": "theme.bookmarks_bar_card.bg",
+        "label": "Card background",
+        "type": "string",
+        "placeholder": "#202020",
+        "defaultValue": "#202020"
+    },
+    {
+        "property": "theme.bookmarks_bar_card.no_shadow",
+        "label": "Remove the drop shadow",
+        "type": "checkbox",
+        "defaultValue": false
+    },
+    {
+        "property": "theme.bookmarks_bar_card.no_hairline",
+        "label": "Remove the hairline edge",
+        "type": "checkbox",
+        "defaultValue": false
+    },
+    {
+        "property": "theme.bookmarks_bar_card.keep_page_gaps",
+        "label": "Keep Zen's default gaps above and below the page",
+        "type": "checkbox",
+        "defaultValue": false
+    }
+]

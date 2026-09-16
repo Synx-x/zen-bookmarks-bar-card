@@ -1,0 +1,95 @@
+/* Bookmarks Bar Card
+ * Rounds Zen's compact-mode top bar into a floating card, and closes the
+ * two gaps that otherwise show as dark bars above and below the page.
+ * #zen-appcontent-navbar-container is the real flex parent of the
+ * bookmarks bar and the window controls. */
+
+/* ---- Shape: rounded card ---- */
+
+:root[zen-compact-mode="true"] #zen-appcontent-navbar-wrapper {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* border-box matters here. Zen's default, content-box, adds padding and
+ * border outside a flex-computed width, which pushed this element past
+ * the window edge by the padding sum. */
+:root[zen-compact-mode="true"] #zen-appcontent-navbar-container {
+    box-sizing: border-box !important;
+    align-items: center !important;
+    margin: calc(var(--theme-bookmarks_bar_card-gap, 8) * 1px) !important;
+    padding-inline: calc(var(--theme-bookmarks_bar_card-inset, 15) * 1px) !important;
+    border-radius: calc(var(--theme-bookmarks_bar_card-radius, 18) * 1px) !important;
+    background: var(--theme-bookmarks_bar_card-bg, #202020) !important;
+}
+
+@media not (-moz-bool-pref: "theme.bookmarks_bar_card.no_shadow") {
+    :root[zen-compact-mode="true"] #zen-appcontent-navbar-container {
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7) !important;
+    }
+}
+
+@media not (-moz-bool-pref: "theme.bookmarks_bar_card.no_hairline") {
+    :root[zen-compact-mode="true"] #zen-appcontent-navbar-container {
+        border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    }
+}
+
+/* Zen paints its own background layer behind the bar. The card replaces it. */
+:root[zen-compact-mode="true"] #zen-appcontent-navbar-wrapper .zen-toolbar-background {
+    display: none !important;
+}
+
+/* ---- Row layout ---- */
+
+/* flex:1 takes the remaining row width and hides its own overflow as the
+ * bar grows. No background of its own, so the card shows through. */
+:root[zen-compact-mode="true"] #PersonalToolbar {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Already last by DOM order. This keeps it from shrinking or scrolling
+ * away as the bookmarks bar fills up. */
+:root[zen-compact-mode="true"] .titlebar-buttonbox-container {
+    flex: 0 0 auto !important;
+}
+
+/* ---- Edge-to-edge page content ---- */
+
+/* At rest the collapsed card still held roughly 9px of layout flow, its
+ * margin plus border, which pushed the page down and left a strip where
+ * the window backdrop showed through. Taking the wrapper out of flow
+ * removes that strip without changing how the card looks when open. */
+@media not (-moz-bool-pref: "theme.bookmarks_bar_card.keep_page_gaps") {
+    :root[zen-compact-mode="true"] #zen-appcontent-navbar-wrapper {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 20 !important;
+    }
+
+    /* #zen-tabbox-wrapper carries Zen's 8px margin on every side. Left
+     * alone, the bottom one leaves a matching strip under the page.
+     * Measured live: wrapper 508px, tabbox 500px, 8px margin-bottom. */
+    :root[zen-compact-mode="true"] #zen-tabbox-wrapper {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+}
+
+/* ---- Reveal ---- */
+
+/* Out of flow, the wrapper sits at its 8px rest height, and Zen's own
+ * overflow:clip then crops the taller card inside it. The thin strip
+ * stays the hover target, so panning to the top edge still triggers the
+ * reveal, and the height opens only far enough to clear the card. */
+:root[zen-compact-mode="true"] #zen-appcontent-navbar-wrapper:hover {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
