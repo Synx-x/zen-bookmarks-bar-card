@@ -45,13 +45,14 @@ the page shows through it, and the bar reads as surfacing from underneath
 rather than dropping on top. This mod drops that fade, so the card lands
 solid in one step. The "Keep the reveal fade" option puts it back.
 
-## Page clearance
+## No layout shift
 
-Out of the layout flow, the bar no longer displaces the page, so a content-rich
-site runs underneath the card and shows through the margin strips around it.
-The page drops by the bar's full zone while the bar is open, then returns when
-it closes. The move is transitioned, and the card itself stays anchored at the
-window top, so the hover target never moves and the state cannot oscillate.
+The card overlays the page rather than displacing it, so revealing the bar
+moves nothing. Zen offsets its browser container by a negative margin to
+compensate for the bar sitting in flow. Out of flow that offset has nothing to
+oppose it, and opening the bar dragged the page up by 26px. This mod zeroes
+that margin. Sampled at 16ms through the reveal, every frame reports the page
+at the same position.
 
 ## Install
 
@@ -83,7 +84,6 @@ restart is needed for any change.
 | Remove the hairline edge | off | Drops the 1px border |
 | Keep Zen's default gaps | off | Restores the strips around the page |
 | Keep the reveal fade | off | Restores Zen's fade-in when the bar reveals |
-| Page shift duration | 180ms | How long the page takes to move aside |
 
 ## Tested against
 

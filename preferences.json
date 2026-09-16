@@ -50,12 +50,5 @@
         "label": "Keep Zen's fade when the bar reveals",
         "type": "checkbox",
         "defaultValue": false
-    },
-    {
-        "property": "theme.bookmarks_bar_card.shift_ms",
-        "label": "How long the page takes to move aside, e.g. 180ms",
-        "type": "string",
-        "placeholder": "0ms - 400ms",
-        "defaultValue": "180ms"
     }
 ]

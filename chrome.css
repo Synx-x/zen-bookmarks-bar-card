@@ -97,18 +97,13 @@
     }
 }
 
-/* ---- Page clearance ---- */
+/* ---- No layout shift on reveal ---- */
 
-/* Out of flow, the bar no longer displaces the page, so a content-rich site
- * runs under the card and shows through the margin strips around it. The
- * page drops by the bar's full zone while it is open, and returns when it
- * closes. Measured: card 34px between 8px margins, so 50px total. */
-:root[zen-compact-mode="true"] #zen-tabbox-wrapper {
-    padding-top: 0 !important;
-    transition: padding-top var(--theme-bookmarks_bar_card-shift_ms, 180ms)
-        cubic-bezier(0.22, 0.61, 0.36, 1) !important;
-}
-
-:root[zen-compact-mode="true"] #zen-appcontent-navbar-wrapper:hover ~ #zen-tabbox-wrapper {
-    padding-top: calc(var(--theme-bookmarks_bar_card-gap, 8) * 2px + 34px) !important;
+/* Zen offsets .browserContainer by a negative margin to compensate for the
+ * bar sitting in flow. Out of flow, nothing opposes it, so opening the bar
+ * dragged the page up by 26px. Sampled at 16ms: the page slid from y=0 to
+ * y=-26 between 619ms and 733ms. Zeroing the margin holds it still, with
+ * every sample across the reveal reading y=0. */
+:root[zen-compact-mode="true"] .browserContainer {
+    margin-top: 0 !important;
 }
