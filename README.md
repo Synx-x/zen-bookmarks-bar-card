@@ -45,6 +45,14 @@ the page shows through it, and the bar reads as surfacing from underneath
 rather than dropping on top. This mod drops that fade, so the card lands
 solid in one step. The "Keep the reveal fade" option puts it back.
 
+## Page clearance
+
+Out of the layout flow, the bar no longer displaces the page, so a content-rich
+site runs underneath the card and shows through the margin strips around it.
+The page drops by the bar's full zone while the bar is open, then returns when
+it closes. The move is transitioned, and the card itself stays anchored at the
+window top, so the hover target never moves and the state cannot oscillate.
+
 ## Install
 
 ### From the Zen Mods store
@@ -75,6 +83,7 @@ restart is needed for any change.
 | Remove the hairline edge | off | Drops the 1px border |
 | Keep Zen's default gaps | off | Restores the strips around the page |
 | Keep the reveal fade | off | Restores Zen's fade-in when the bar reveals |
+| Page shift duration | 180ms | How long the page takes to move aside |
 
 ## Tested against
 
