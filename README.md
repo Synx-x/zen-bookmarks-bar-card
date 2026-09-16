@@ -31,13 +31,19 @@ margin plus border, even at rest. That space pushes the page down and leaves a
 strip where the window's backdrop shows through. This mod takes the bar out of
 the layout flow, so it floats over the page instead of displacing it.
 
-Below the page, `#zen-tabbox-wrapper` carries an 8px margin on every side.
-Measured on a 508px window, the content area comes to 500px, leaving exactly
-8px of backdrop at the bottom. This mod zeroes the top and bottom margins and
-leaves the sides alone.
+Around the page, `#zen-tabbox-wrapper` carries an 8px margin on every side.
+Measured on a 508px window, the content area comes to 500px, leaving 8px of
+backdrop on each edge. This mod zeroes all four.
 
-The "Keep Zen's default gaps" option restores both strips, for anyone who
+The "Keep Zen's default gaps" option restores the strips, for anyone who
 prefers the inset look.
+
+## The reveal
+
+Zen fades the bar in as it reveals. Mid-fade the card is half transparent, so
+the page shows through it, and the bar reads as surfacing from underneath
+rather than dropping on top. This mod drops that fade, so the card lands
+solid in one step. The "Keep the reveal fade" option puts it back.
 
 ## Install
 
@@ -67,7 +73,8 @@ restart is needed for any change.
 | Card background | `#202020` | Card fill colour |
 | Remove the drop shadow | off | Drops the shadow under the card |
 | Remove the hairline edge | off | Drops the 1px border |
-| Keep Zen's default gaps | off | Restores the strips above and below the page |
+| Keep Zen's default gaps | off | Restores the strips around the page |
+| Keep the reveal fade | off | Restores Zen's fade-in when the bar reveals |
 
 ## Tested against
 

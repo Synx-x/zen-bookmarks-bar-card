@@ -41,7 +41,13 @@
     },
     {
         "property": "theme.bookmarks_bar_card.keep_page_gaps",
-        "label": "Keep Zen's default gaps above and below the page",
+        "label": "Keep Zen's default gaps around the page",
+        "type": "checkbox",
+        "defaultValue": false
+    },
+    {
+        "property": "theme.bookmarks_bar_card.keep_reveal_fade",
+        "label": "Keep Zen's fade when the bar reveals",
         "type": "checkbox",
         "defaultValue": false
     }
